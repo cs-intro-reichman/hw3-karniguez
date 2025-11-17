@@ -25,32 +25,61 @@ public class Algebra {
 
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
+		if (x2 < 0){
+			while (0 > x2){
+			x1--;
+			x2++;
+
+		}
+	    } 
+		else{
 		while (0 < x2){
 			x1++;
 			x2--;
 		}
-		// Replace the following statement with your code
-		return 0;
 	}
+		return x1;
+	
+}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		// Replace the following statement with your code
-		while (0 < x2){
+		if (x2 < 0){
+			while (0 > x2){
+			x1++;
+			x2++;
+			}
+
+		}
+		else{
+		    while (0 < x2){
 			x1--;
 			x2--;
-		}
-		return 0;
+		    }
 	}
+		return x1;
+	}
+
+
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
 		// Replace the following statement with your code
 		int tim = 0;
+		if (x2 < 0){
+			while (0 > x2){
+			tim = minus(tim, x1);
+			x2++;
+			}
+
+		}
+		else{
 		while (0 < x2){
 			tim = plus(tim, x1);
 			x2--;
 		}
+	}
 
 		return tim;
 	}
@@ -61,7 +90,14 @@ public class Algebra {
 		int po = 1;
 		if (n==0) {
 			return 1;
-		}else{
+		}
+		else if (0  > x) {
+			while (0 < n){
+			po = times(po, x);
+            n--;
+			}
+		}
+		else{
 			while (0 < n){
 			po = times(po, x);
             n--;
@@ -77,12 +113,28 @@ public class Algebra {
 		// Replace the following statement with your code
 		
 		int co = 0;
+		if (x2 < 0 && x1 < 0){
+			while (x1 <= x2){
+			x1 = minus(x1,x2);
+			co++;
+			}
+		}
+		else if (x2 > 0 && x1 < 0){
+			while (x1 <= x2){
+			x1 = plus(x1, x2);
+			co--;
+			}
+			return co;
+			
+		}
+		else{
 		while (x1 >= x2){
 			x1 = minus(x1,x2);
 			co++;
 		}
-
-		return co;
+		
+	}
+	return co;
 	}
 
 	// Returns x1 % x2
