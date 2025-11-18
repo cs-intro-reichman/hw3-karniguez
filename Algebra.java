@@ -119,12 +119,14 @@ public class Algebra {
 			co++;
 			}
 		}
-		else if (x2 > 0 && x1 < 0){
-			while (x1 <= x2){
-			x1 = plus(x1, x2);
+		else if (x1 < 0){
+			x1 = minus(0 , x1);
+
+			while (x1 >= x2){
+			x1 = minus(x1, x2);
 			co--;
 			}
-			return co;
+			
 			
 		}
 		else{
